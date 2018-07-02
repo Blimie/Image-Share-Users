@@ -1,0 +1,25 @@
+﻿@using Homework180502.Models
+@model HomePageViewModel
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info alert-dismissable fade in" style="margin-top: 20px">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @Model.Message
+    </div>
+}
+<div class="row">            
+    <div class="col-md-6 col-md-offset-3 well" style="margin-top: 40px">         
+        <h1 class="text-primary text-center">Hi, @Model.User.Name</h1>
+        <br /><br />
+        <form method="post" action="/Images/Upload" enctype="multipart/form-data">
+            <input type="file" name="imageFile" />
+            <br />
+            <input type="text" class="form-control" name="password" placeholder="Custom Password" />
+            <br />
+            <input type="hidden" name="userId" value="@Model.User.Id"/>
+            <button class="btn btn-primary btn-block">Upload</button>
+        </form>
+    </div>
+</div>
+

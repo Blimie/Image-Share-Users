@@ -1,0 +1,33 @@
+﻿@using Homework180502.Models
+@model ViewImageViewModel
+
+@if (!Model.HasPermissionToView)
+{
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            @if (Model.Message != null)
+            {
+                <div class="alert alert-info alert-dismissable fade in" style="margin-top: 20px">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @Model.Message
+                </div>
+            }
+            <br />
+            <h4>Please enter the password for this image:</h4>
+            <form method="post" action="/images/viewimage">
+                <input type="hidden" name="id" value="@Model.Image.Id" />
+                <input type="text" class="form-control" placeholder="Password" name="password" />
+                <br />
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <h3>Views: @Model.Image.ViewsCount</h3>
+        <br />
+        <img src="/UploadedImages/@Model.Image.FileName" style="width: 800px;" />
+    </div>
+}

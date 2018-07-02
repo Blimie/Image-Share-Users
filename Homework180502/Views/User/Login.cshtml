@@ -1,0 +1,25 @@
+﻿@using Homework180502.Models
+@model LoginViewModel
+
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info alert-dismissable fade in" style="margin-top: 20px">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @Model.Message
+    </div>
+}
+<div class="wrapper">
+    <form action="/User/Login" method="post" name="Login_Form" class="form-signin">
+        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+        <hr class="colorgraph"><br>       
+        <input type="text" class="form-control" name="Email" placeholder="Email" />
+        <input type="password" class="form-control" name="Password" placeholder="Password" /> 
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+    </form>
+</div>
+
+
+@section stylesheets {
+    <link rel="stylesheet" href="/content/login.css" />
+}
