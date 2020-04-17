@@ -24,6 +24,7 @@ namespace Homework180502.Controllers
         }
         public ActionResult Login()
         {
+            var foo = "";
             var viewModel = new LoginViewModel();
             if (TempData["Message"] != null)
             {
