@@ -9,13 +9,6 @@ namespace Homework180502.Data
 {
     public static class PasswordHelper
     {
-        public static string GenerateSalt()
-        {
-            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
-            byte[] bytes = new byte[10];
-            provider.GetBytes(bytes);
-            return Convert.ToBase64String(bytes);
-        }   
          public static string GenerateSalt(int i = 0)
         {
             RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
